@@ -1,0 +1,50 @@
+Standard API
+
+{root.api}/{version}/{grouping}/{endpoint}
+SAMPLE: 
+http://mern-api.generuskoding.com/v1/auth/login
+
+Standard Status Response
+200 - OK                    => Call API success
+201 - CREATED               => Post API success
+400 - BAD REQUEST           => Error on Client Side
+401 - UNAUTHORIZED          => User not authorized to the request
+403 - FORBIDDEN             => User not allowed to access
+500 - INTERNAL SERVER ERROR => Error on server side
+502 - BAD GATEWAY           => Invalid response from another request
+
+GROUP: Authentication
+
+[1] - Register
+{root.api}/{version}/auth/register
+
+req:
+{
+    "name": "Testing",
+    "email": "rangga@gmail.com",
+    "password": "12345"
+}
+
+res: 
+{
+    "message": "Register successfully",
+    "data": {
+        "id": "1",
+        "name": "Testing",
+        "email": "rangga@gmail.com",
+        "password": "12345"
+    }
+}
+
+err-repsonse: 
+400 - Input yang Anda masukan tidak valid
+
+[2] - Login
+{root.api}/{version}/auth/login
+
+GROUP: BLOG
+
+[1] - Create Blog Post
+[2] - Get Blog Post
+[3] - Update Blog Post
+[4] - Delete Blog Post
