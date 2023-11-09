@@ -1,0 +1,22 @@
+{
+  "name": "mern-api-prawito",
+  "version": "1.0.0",
+  "description": "REST API NODEJS (MERN Stack)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranggasuryap15/mern-api-prawito.git"
+  },
+  "author": "Rangga Surya Prayoga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranggasuryap15/mern-api-prawito/issues"
+  },
+  "homepage": "https://github.com/ranggasuryap15/mern-api-prawito#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
