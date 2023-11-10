@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 // controller
 const authRoutes = require("./src/routes/auth");
@@ -32,6 +33,11 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message, data });
 });
 
-app.listen(4000, () => {
-  console.log("Server is running on port 4000");
-});
+mongoose
+  .connect(
+    "mongodb+srv://ranggasuryap15:J3lnZ6fIFxnYbhXN@cluster0.clwldbv.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    app.listen(4000, () => console.log("Connection Success"));
+  })
+  .catch((err) => console.log(err));
