@@ -142,7 +142,7 @@ exports.deleteBlogPost = (req, res, next) => {
       removeImage(post.image);
 
       // delete
-      return BlogPost.findByIdAndRemove(postId);
+      return BlogPost.findByIdAndDelete(postId);
     })
     .then((result) => {
       res.status(200).json({
@@ -157,7 +157,5 @@ exports.deleteBlogPost = (req, res, next) => {
 
 const removeImage = (filepath) => {
   filepath = path.join(__dirname, "../..", filepath);
-
-  // delete
   fs.unlink(filepath, (err) => console.log(err));
 };
