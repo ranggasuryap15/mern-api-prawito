@@ -36,7 +36,7 @@ app.use((error, req, res, next) => {
 // connect to mongodb server
 mongoose
   .connect(
-    "mongodb+srv://ranggasuryap15:J3lnZ6fIFxnYbhXN@cluster0.clwldbv.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://ranggasuryap15:J3lnZ6fIFxnYbhXN@cluster0.clwldbv.mongodb.net/blog?retryWrites=true&w=majority"
   )
   .then(() => {
     app.listen(4000, () => console.log("Connection Success"));
