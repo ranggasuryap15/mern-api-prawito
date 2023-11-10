@@ -14,4 +14,7 @@ router.post(
   blogController.createBlogPost
 );
 
+router.get("/posts", blogController.getAllBlogPost);
+router.get("/post/:id", blogController.getBlogPostById);
+
 module.exports = router;

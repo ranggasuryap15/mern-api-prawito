@@ -42,3 +42,35 @@ exports.createBlogPost = (req, res, next) => {
     })
     .catch((err) => console.log(err));
 };
+
+exports.getAllBlogPost = (req, res, next) => {
+  BlogPost.find()
+    .then((result) => {
+      res.status(200).json({
+        message: "Data Blog Post berhasil diterima",
+        data: result,
+      });
+    })
+    .catch((err) => {
+      next(err); // handle di middleware berikutnya
+    });
+};
+
+exports.getBlogPostById = (req, res, next) => {
+  const postId = req.params.id;
+  BlogPost.findById(postId)
+    .then((result) => {
+      if (!result) {
+        const error = new Error("Blog post tidak ditemukan");
+        error.errorStatus = 404;
+        throw error;
+      }
+      res.status(200).json({
+        message: "Data Blog Post berhasil diterima",
+        data: result,
+      });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
