@@ -37,10 +37,28 @@ res:
 }
 
 err-repsonse: 
+201 - Register Berhasil
 400 - Input yang Anda masukan tidak valid
 
 [2] - Login
 {root.api}/{version}/auth/login
+
+req:
+{
+    "email": "rangga@gmail.com",
+    "password": "12345"
+}
+
+res: 
+{
+    "message": "Login successfully",
+    "data": {
+        "id": "1",
+        "name": "Testing",
+        "email": "rangga@gmail.com",
+        "password": "12345"
+    }
+}
 
 GROUP: BLOG
 
