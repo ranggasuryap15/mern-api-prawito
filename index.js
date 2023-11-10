@@ -33,6 +33,7 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message, data });
 });
 
+// connect to mongodb server
 mongoose
   .connect(
     "mongodb+srv://ranggasuryap15:J3lnZ6fIFxnYbhXN@cluster0.clwldbv.mongodb.net/?retryWrites=true&w=majority"
