@@ -63,6 +63,31 @@ res:
 GROUP: BLOG
 
 [1] - Create Blog Post
+[POST] : {root.api}/{version}/blog/post
+
+req:
+{
+    "title": "Blog Post",
+    "image": "imagefile.png",
+    "body": "lorem ipsum dolor sit amet"
+}
+
+res:
+{
+    "message": "Create Blog Post Success",
+    "data": {
+        "post_id": 1,
+        "title": "Blog Post",
+        "image": "imagefile.png",
+        "body": "lorem ipsum dolor sit amet",
+        "created_at": "2023-10-13"
+        "author": {
+            "uid": 1,
+            "name": "Faza Ruziqyani Firdausa",
+        }
+    }
+}
+
 [2] - Get Blog Post
 [3] - Update Blog Post
 [4] - Delete Blog Post
