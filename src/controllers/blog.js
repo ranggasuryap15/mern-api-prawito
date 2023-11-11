@@ -46,16 +46,30 @@ exports.createBlogPost = (req, res, next) => {
 };
 
 exports.getAllBlogPost = (req, res, next) => {
+  const currentPage = req.query.page || 1;
+  const perPage = req.query.perPage || 5;
+  let totalItems;
+
   BlogPost.find()
+    .countDocuments()
+    .then((count) => {
+      totalItems = count;
+
+      // ambil data
+      return BlogPost.find()
+        .skip((parseInt(currentPage) - 1) * perPage)
+        .limit(parseInt(perPage));
+    })
     .then((result) => {
       res.status(200).json({
         message: "Data Blog Post berhasil diterima",
         data: result,
+        total_data: totalItems,
+        per_page: parseInt(perPage),
+        current_page: parseInt(currentPage),
       });
     })
-    .catch((err) => {
-      next(err); // handle di middleware berikutnya
-    });
+    .catch((err) => next(err));
 };
 
 exports.getBlogPostById = (req, res, next) => {
@@ -155,6 +169,7 @@ exports.deleteBlogPost = (req, res, next) => {
     });
 };
 
+// function
 const removeImage = (filepath) => {
   filepath = path.join(__dirname, "../..", filepath);
   fs.unlink(filepath, (err) => console.log(err));
